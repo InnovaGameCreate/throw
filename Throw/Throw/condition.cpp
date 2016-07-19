@@ -1,14 +1,34 @@
 #include "GV.h"
+#include "define.h"
+
+//‰¼
+int x = 200;
+int flag = 0;
 
 
 //ƒQ[ƒ€ˆ—ƒ‹[ƒv
 void condition_update() {
 
+	if (x <= 100) {
+		flag = 1;
+	}
+	else if (x >= 300) {
+		flag = 0;
+	}
+
+	if (flag == 0) {
+		x -= 4;
+	}
+	else if (flag == 1) {
+		x += 4;
+	}
+
 }
 
 //•`‰æˆ—
 void condition_draw() {
-
+	
+	DrawBox(100, x, 150, 300, GetColor(255, 0, 0), TRUE);//lŠp‚ğ•`‰æ
 }
 
 

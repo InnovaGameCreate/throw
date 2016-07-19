@@ -1,11 +1,15 @@
 #include <math.h>
 #include "DxLib.h"
+#include "GV.h"
+#include "define.h"
 
 static int mStartTime;      //測定開始時刻
 static int mCount;          //カウンタ
 static float mFps;          //fps
 static const int N = 60;	//平均を取るサンプル数
-static const int FPS = 60;	//設定したFPS
+static const int FPS = 60;	//設定したFPSz 
+
+int Game_Scene = 1;
 
 bool Update() {
 	if (mCount == 0) { //1フレーム目なら時刻を記憶
@@ -18,11 +22,49 @@ bool Update() {
 		mStartTime = t;
 	}
 	mCount++;
+
+	switch (Game_Scene) {
+	case 0://スタートメニュー
+		startmenu_draw();
+		break;
+	case 1://コンディション
+		condition_update();
+		break;
+	case 2://パワー
+		power_draw();
+		break;
+	case 3://タイミング
+		timing_draw();
+		break;
+	case 4://リザルト
+		result_draw();
+		break;
+	}
+
 	return true;
 }
 
 void Draw() {
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f", mFps);
+
+	switch (Game_Scene) {
+		case 0://スタートメニュー
+			startmenu_draw();
+			break;
+		case 1://コンディション
+			condition_draw();
+			break;
+		case 2://パワー
+			power_draw();
+			break;
+		case 3://タイミング
+			timing_draw();
+			break;
+		case 4://リザルト
+			result_draw();
+			break;
+	}
+
 }
 
 void Wait() {

@@ -1,5 +1,5 @@
 #include "GV.h"
-
+#include "define.h"
 
 //ƒQ[ƒ€ˆ—ƒ‹[ƒv
 void power_update() {

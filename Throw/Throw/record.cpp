@@ -1,6 +1,6 @@
 //記録
 #include "GV.h"
-
+#include "define.h"
 
 //ゲーム処理ループ
 void record_update() {

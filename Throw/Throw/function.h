@@ -1,6 +1,7 @@
-#pragma once
-#pragma once
-//timing
+#ifndef _INCLUDE_FUNCTION_
+#define _INCLUDE_FUNCTION_
+
+//main
 bool Update();
 void Draw();
 void Initialize();
@@ -42,3 +43,5 @@ void record_update();
 void record_draw();
 void record_initialize();
 void record_finalize();
+
+#endif

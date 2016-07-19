@@ -1,6 +1,6 @@
 //タイミングゲージ
 #include "GV.h"
-
+#include "define.h"
 
 //ゲーム処理ループ
 void timing_update() {
