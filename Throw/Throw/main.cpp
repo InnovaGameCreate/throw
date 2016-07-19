@@ -25,19 +25,19 @@ bool Update() {
 
 	switch (Game_Scene) {
 	case 0://スタートメニュー
-		startmenu_draw();
+		startmenu_update();
 		break;
 	case 1://コンディション
 		condition_update();
 		break;
 	case 2://パワー
-		power_draw();
+		power_update();
 		break;
 	case 3://タイミング
-		timing_draw();
+		timing_update();
 		break;
 	case 4://リザルト
-		result_draw();
+		result_update();
 		break;
 	}
 
