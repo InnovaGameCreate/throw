@@ -1,5 +1,4 @@
 #include "GV.h"
-#include "define.h"
 
 //‰¼
 int x = 200;

@@ -1,7 +1,5 @@
 #include <math.h>
-#include "DxLib.h"
 #include "GV.h"
-#include "define.h"
 
 static int mStartTime;      //測定開始時刻
 static int mCount;          //カウンタ
@@ -45,7 +43,6 @@ bool Update() {
 }
 
 void Draw() {
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f", mFps);
 
 	switch (Game_Scene) {
 		case 0://スタートメニュー
@@ -64,6 +61,9 @@ void Draw() {
 			result_draw();
 			break;
 	}
+
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f", mFps);
+
 
 }
 
