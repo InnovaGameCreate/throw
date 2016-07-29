@@ -44,4 +44,11 @@ void record_draw();
 void record_initialize();
 void record_finalize();
 
+
+//save
+void save_update();
+void save_draw();
+void save_initialize();
+void save_finalize();
+
 #endif

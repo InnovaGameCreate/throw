@@ -77,7 +77,9 @@ void Wait() {
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	ChangeWindowMode(TRUE), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
-
+	
+	initialize();
+	
 	while (ProcessMessage() == 0 && ClearDrawScreen() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
 		Update();	//çXêV
 		Draw();		//ï`âÊ
@@ -87,4 +89,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	DxLib_End();
 	return 0;
+}
+
+//èâä˙âª
+void initialize() {
+	condition_initialize();
+	power_initialize();
+	record_initialize();
+	result_initialize();
+	save_initialize();
+	startmenu_initialize();
+	timing_initialize();
 }

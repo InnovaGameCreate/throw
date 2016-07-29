@@ -166,6 +166,7 @@
     <ClCompile Include="power.cpp" />
     <ClCompile Include="record.cpp" />
     <ClCompile Include="result.cpp" />
+    <ClCompile Include="save.cpp" />
     <ClCompile Include="startmenu.cpp" />
     <ClCompile Include="timing.cpp" />
   </ItemGroup>
