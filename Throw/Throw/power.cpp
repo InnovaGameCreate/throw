@@ -11,6 +11,7 @@ void power_draw() {
 }
 
 
+
 //‰Šú‰»ŠÖ”
 void power_initialize() {
 

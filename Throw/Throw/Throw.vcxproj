@@ -177,6 +177,9 @@
     <ClInclude Include="GV.h" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="record.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

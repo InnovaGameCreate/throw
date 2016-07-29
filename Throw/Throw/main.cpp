@@ -64,8 +64,9 @@ void Draw() {
 
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f", mFps);
 
-
 }
+
+
 
 void Wait() {
 	int tookTime = GetNowCount() - mStartTime;	//Ç©Ç©Ç¡ÇΩéûä‘
@@ -73,6 +74,19 @@ void Wait() {
 	if (waitTime > 0) {
 		Sleep(waitTime);	//ë“ã@
 	}
+}
+
+
+
+//èâä˙âª
+void initialize() {
+	condition_initialize();
+	power_initialize();
+	record_initialize();
+	result_initialize();
+	save_initialize();
+	startmenu_initialize();
+	timing_initialize();
 }
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -85,19 +99,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		Draw();		//ï`âÊ
 		ScreenFlip();
 		Wait();		//ë“ã@
+		
 	}
-
+	
+	
 	DxLib_End();
 	return 0;
 }
 
-//èâä˙âª
-void initialize() {
-	condition_initialize();
-	power_initialize();
-	record_initialize();
-	result_initialize();
-	save_initialize();
-	startmenu_initialize();
-	timing_initialize();
-}

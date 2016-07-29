@@ -50,5 +50,7 @@ void save_update();
 void save_draw();
 void save_initialize();
 void save_finalize();
+void save_load();//‹L˜^‚ğ“Ç‚İ‚ŞŠÖ”
+void save_output();//‹L˜^‚ğo—Í‚·‚éŠÖ”
 
 #endif
