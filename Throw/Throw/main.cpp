@@ -94,15 +94,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	
 	initialize();
 	
+
 	while (ProcessMessage() == 0 && ClearDrawScreen() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
 		Update();	//çXêV
 		Draw();		//ï`âÊ
 		ScreenFlip();
 		Wait();		//ë“ã@
-		
-	}
 	
+	}	
 	
+
+
 	DxLib_End();
 	return 0;
 }
