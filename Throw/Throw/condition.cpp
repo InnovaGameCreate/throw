@@ -28,7 +28,7 @@ void condition_update() {
 void condition_draw() {
 	
 	DrawBox(100, 301, 150, 100, GetColor(255, 255, 255), FALSE);
-	DrawBox(100, x, 150, 300, GetColor(255, 0, 0), TRUE);//ŽlŠp‚ð•`‰æ
+	DrawBox(100, x, 150, 300, GetColor(255, 0, 0), TRUE);
 }
 
 
