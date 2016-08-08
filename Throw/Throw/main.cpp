@@ -7,7 +7,7 @@ static float mFps;          //fps
 static const int N = 60;	//平均を取るサンプル数
 static const int FPS = 60;	//設定したFPSz 
 
-int Game_Scene = 5;
+int Game_Scene = 1;
 
 bool Update() {
 	if (mCount == 0) { //1フレーム目なら時刻を記憶
