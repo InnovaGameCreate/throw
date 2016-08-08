@@ -68,7 +68,7 @@ void Draw() {
 			break;
 	}
 
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f", mFps);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%.1f  %d", mFps, Game_Scene);
 
 }
 
