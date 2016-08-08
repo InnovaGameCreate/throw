@@ -1,9 +1,9 @@
 #include "GV.h"
 #include <stdlib.h>
-#define RECORD_N 3
+
 
 FILE *file;
-int record[RECORD_N];
+int record[RECORD_N];//記録の値
 int i;
 
 //ゲーム処理ループ
@@ -23,9 +23,7 @@ void save_draw() {
 
 //初期化関数
 void save_initialize() {
-	for (i = 0; i < RECORD_N; i++) {
-		record[i] = i * 11;
-	}
+	//save_load();//記録のロード
 }
 
 
@@ -44,7 +42,6 @@ void save_load() {
 	}
 
 	for (i = 0; i < RECORD_N; i++) {
-		//fread(&record[i], sizeof(int), 10, file);
 		char a[60] = "23";
 		fgets(a, 256, file);
 		record[i] = atoi(a);
