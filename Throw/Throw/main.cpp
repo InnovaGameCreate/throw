@@ -66,8 +66,6 @@ void Draw() {
 
 }
 
-
-
 void Wait() {
 	int tookTime = GetNowCount() - mStartTime;	//‚©‚©‚Á‚½ŽžŠÔ
 	int waitTime = mCount * 1000 / FPS - tookTime;	//‘Ò‚Â‚×‚«ŽžŠÔ
