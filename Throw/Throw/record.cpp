@@ -1,14 +1,14 @@
 //‹L˜^
 #include "GV.h"
 
-int font[2];
-char *fonttype; 
-char record_char[RECORD_N][64];
-char number[RECORD_N][3];
-int mouse_x, mouse_y, mouse;
-int delete_x = 100, delete_y = 350, delete_x_size = 180, delete_y_size = 30;
-int back_x = 400, back_y = 350, back_x_size = 90, back_y_size = 30;
-int back_f = 1, delete_f = 1;
+static int font[2];
+static char *fonttype; 
+static char record_char[RECORD_N][64];
+static char number[RECORD_N][3];
+static int mouse_x, mouse_y, mouse;
+static int delete_x = 100, delete_y = 350, delete_x_size = 180, delete_y_size = 30;
+static int back_x = 400, back_y = 350, back_x_size = 90, back_y_size = 30;
+static int back_f = 1, delete_f = 1;
 
 void all_delete();//‹L˜^‚ğÁ‹‚·‚éŠÖ”
 
