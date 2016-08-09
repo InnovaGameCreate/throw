@@ -7,7 +7,8 @@ static float mFps;          //fps
 static const int N = 60;	//平均を取るサンプル数
 static const int FPS = 60;	//設定したFPSz 
 
-int Game_Scene = 1;
+int Game_Scene = 0;
+int game_loop = 0;
 
 bool Update() {
 	if (mCount == 0) { //1フレーム目なら時刻を記憶
@@ -94,7 +95,10 @@ void initialize() {
 }
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-	ChangeWindowMode(TRUE), DxLib_Init(), SetDrawScreen(DX_SCREEN_BACK);
+	ChangeWindowMode(TRUE);
+	SetGraphMode(WINDOW_WIDE, WINDOW_HEIGHT, 16);//ウィンドウの大きさ変更
+	DxLib_Init();
+	SetDrawScreen(DX_SCREEN_BACK);
 	
 	initialize();
 	
@@ -105,6 +109,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		ScreenFlip();
 		Wait();		//待機
 	
+
+		if (game_loop == 1)
+			break;
 	}	
 	
 
