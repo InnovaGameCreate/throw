@@ -8,6 +8,7 @@ static int record_y = 310, record_x_size = 150, record_y_size = 30;
 static int close_y = 370, close_x_size = 150, close_y_size = 30;
 static int start_f = 0, record_f = 0, close_f = 0;
 static int mouse_x, mouse_y, mouse;
+static int background;
 
 
 //ゲーム処理ループ
@@ -42,6 +43,8 @@ void startmenu_update() {
 
 //描画処理
 void startmenu_draw() {
+	DrawGraph(0, 0, background, TRUE); //画像の描画
+
 	DrawStringToHandle(place_x - start_f * 10, start_y - start_f * 10, "start", GetColor(255, 255, 255), font[start_f]);
 	DrawStringToHandle(place_x - record_f * 10, record_y - record_f * 10, "record", GetColor(255, 255, 255), font[record_f]);
 	DrawStringToHandle(place_x - close_f * 10, close_y - close_f * 10, "close", GetColor(255, 255, 255), font[close_f]);
@@ -60,6 +63,12 @@ void startmenu_initialize() {
 	font[0] = CreateFontToHandle(fonttype, 30, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font[1] == -1) {
 		printf("not find " + *fonttype);
+		exit(-1);
+	}
+
+	background = LoadGraph("img/mati2.jpg");//画像ロード
+	if (background == -1) {
+		printf("not find mati1.jpg");
 		exit(-1);
 	}
 }

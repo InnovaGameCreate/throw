@@ -6,9 +6,10 @@ static char *fonttype;
 static char record_char[RECORD_N][64];
 static char number[RECORD_N][3];
 static int mouse_x, mouse_y, mouse;
-static int delete_x = 100, delete_y = 350, delete_x_size = 180, delete_y_size = 30;
-static int back_x = 400, back_y = 350, back_x_size = 90, back_y_size = 30;
+static int delete_x = 150, delete_y = 350, delete_x_size = 180, delete_y_size = 30;
+static int back_x = 450, back_y = 350, back_x_size = 90, back_y_size = 30;
 static int back_f = 0, delete_f = 0;
+static int background;
 
 void all_delete();//‹L˜^‚ğÁ‹‚·‚éŠÖ”
 
@@ -37,6 +38,9 @@ void record_update() {
 
 //•`‰æˆ—
 void record_draw() {
+	DrawGraph(0, 0, background, TRUE); //‰æ‘œ‚Ì•`‰æ
+
+
 	DrawStringToHandle(100, 50, "Record", GetColor(255, 255, 255), font[1]);
 	int i;
 	for (i = 0; i < RECORD_N; i++) {
@@ -71,6 +75,13 @@ void record_initialize() {
 		sprintf(record_char[i], "     %d", record[i]);
 		sprintf(number[i], "%d", i + 1);
 	}
+
+	background = LoadGraph("img/mati2.jpg");//‰æ‘œƒ[ƒh
+	if (background == -1) {
+		printf("not find mati1.jpg");
+		exit(-1);
+	}
+
 }
 
 
