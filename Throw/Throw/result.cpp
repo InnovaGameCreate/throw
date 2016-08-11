@@ -38,12 +38,12 @@ void result_initialize() {
 	move_img = LoadGraph("img/mati1.jpg");//画像ロード
 	if (move_img == -1) {
 		printf("not find mati1.jpg");
-		exit(-1);
+		///exit(-1);
 	}
 	enemy_img = LoadGraph("img/sample.png");//画像ロード
 	if (enemy_img == -1) {
 		printf("not find sample.png");
-		exit(-1);
+		///exit(-1);
 	}
 }
 
