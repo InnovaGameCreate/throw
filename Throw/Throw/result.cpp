@@ -2,12 +2,12 @@
 
 #define PI 3.14
 
-static int move_img, enemy_img;//‰æ‘œ—p
+static int move_img, enemy_img, great_img;//‰æ‘œ—p
 static int move_img_x1 = 0, move_img_x2 = WINDOW_WIDE;//”wŒi‚ÌˆÚ“®—p
 static int move_speed = 4;//”wŒi‚Ì“®‚­‘¬‚³
 static int count = 0;//‚Ç‚ê‚¾‚¯“®‚¢‚½‚©
 static int distance = -1;//“Š‚°‚é‹——£i|‚P‚Ì‚Í–¢ŒvZj
-
+static int result_scene = 0;
 
 int decide_distance();//“Š‚°‚é‹——£‚ğŒvZ
 
@@ -33,17 +33,29 @@ void result_update() {
 		count += 5;
 	}else{
 		count = distance;
+		if (distance >= 0)
+			result_scene = 1;//¬Œ÷
+		else
+			result_scene = 2;//¸”s
 	}
 }
 
 //•`‰æˆ—
 void result_draw() {
-	DrawGraph(move_img_x1, 0, move_img, TRUE); //‰æ‘œ‚Ì•`‰æ
-	DrawGraph(move_img_x2, 0, move_img, TRUE); //‰æ‘œ‚Ì•`‰æ
+	if (result_scene == 0) {
+		DrawGraph(move_img_x1, 0, move_img, TRUE); //‰æ‘œ‚Ì•`‰æ
+		DrawGraph(move_img_x2, 0, move_img, TRUE); //‰æ‘œ‚Ì•`‰æ
 
-	DrawFormatString(300, 150, GetColor(255, 0, 0), "%d", count);//‹——£
-	
-	DrawRotaGraph(100, 200, 0.3, PI / 180 * (count % 360), enemy_img, TRUE);//“G
+		DrawFormatString(300, 150, GetColor(255, 0, 0), "%d", count);//‹——£
+
+		DrawRotaGraph(100, 200, 0.3, PI / 180 * (count % 360), enemy_img, TRUE);//“G
+	}
+	else if (result_scene == 1) {
+		DrawGraph(0, 0, great_img, TRUE); //‰æ‘œ‚Ì•`‰æ
+	}
+	else if (result_scene == 2) {
+
+	}
 }
 
 
@@ -59,6 +71,11 @@ void result_initialize() {
 		printf("not find sample.png");
 		///exit(-1);
 	}
+	great_img = LoadGraph("img/mati4.jpg");//‰æ‘œƒ[ƒh
+	if (great_img == -1) {
+		printf("not find mati4.jpg");
+		///exit(-1);
+	}
 }
 
 
@@ -69,8 +86,8 @@ void result_finalize() {
 
 //“Š‚°‚é‹——£‚ğŒvZ
 int decide_distance() {
-	int power = 20;
-	int condition = 50;
+	int power = 200;
+	int condition = 500;
 	int timing = 2;
 
 	return (power + condition) * timing;
