@@ -65,14 +65,14 @@ void record_initialize() {
 	fonttype = "Segoe Script";
 	
 	font[1] = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
-	if (font[0] == -1) {
+	if (font[1] == -1) {
 		printf("not find "+ *fonttype);
 		///exit(-1);
 	}
 
 
 	font[0] = CreateFontToHandle(fonttype, 30, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
-	if (font[1] == -1) {
+	if (font[0] == -1) {
 		printf("not find " + *fonttype);
 		///exit(-1);
 	}

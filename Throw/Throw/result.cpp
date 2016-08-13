@@ -2,7 +2,10 @@
 
 #define PI 3.14
 
-static int move_img, enemy_img, great_img;//画像用
+static int font;//フォント用
+static char *fonttype; //フォントタイプ
+static char draw_distance[10];
+static int move_img, enemy_img, great_img, miss_img;//画像用
 static int move_img_x1 = 0, move_img_x2 = WINDOW_WIDE;//背景の移動用
 static int move_speed = 4;//背景の動く速さ
 static int count = 0;//どれだけ動いたか
@@ -15,24 +18,42 @@ int decide_distance();//投げる距離を計算
 
 //ゲーム処理ループ
 void result_update() {
-	if (distance == -1)
+	if (distance == -1) {
 		distance = decide_distance();//投げる距離を計算
+		if (distance < 0) {
+			move_img_x2 = -(WINDOW_WIDE);
+		}
 
-
+	}
 	//背景の移動
-	move_img_x1 -= move_speed;
-	if (move_img_x1 <= -(WINDOW_WIDE))
-		move_img_x1 = WINDOW_WIDE;
-	move_img_x2 -= move_speed;
-	if (move_img_x2 <= -(WINDOW_WIDE))
-		move_img_x2 = WINDOW_WIDE;
+	if (distance >= 0) {
+		move_img_x1 -= move_speed;
+		if (move_img_x1 <= -(WINDOW_WIDE))
+			move_img_x1 = WINDOW_WIDE;
+		move_img_x2 -= move_speed;
+		if (move_img_x2 <= -(WINDOW_WIDE))
+			move_img_x2 = WINDOW_WIDE;
+	}
+	else {
+		move_img_x1 += move_speed;
+		if (move_img_x1 >= WINDOW_WIDE)
+			move_img_x1 = 0;
+		move_img_x2 += move_speed;
+		if (move_img_x2 >= WINDOW_WIDE)
+			move_img_x2 = 0;
+	}
 
-
-
-	if (count < distance) {//飛距離で止める
-		count += 5;
-	}else{
+	if(distance >= 0 && count < distance){
+		//if (count < distance) {//飛距離で止める
+			count += 5;
+		//}/
+	}
+	else if (distance < 0 && count > distance) {
+		count -= 5;
+	}
+	else{
 		count = distance;
+		sprintf(draw_distance, "%dm", distance);
 		if (distance >= 0)
 			result_scene = 1;//成功
 		else
@@ -52,9 +73,13 @@ void result_draw() {
 	}
 	else if (result_scene == 1) {
 		DrawGraph(0, 0, great_img, TRUE); //画像の描画
+		DrawStringToHandle(100, 50, "成功！", GetColor(255, 255, 255), font);
+		DrawStringToHandle(320, 50, draw_distance, GetColor(255, 255, 255), font);
 	}
 	else if (result_scene == 2) {
-
+		DrawGraph(0, 0, miss_img, TRUE); //画像の描画
+		DrawStringToHandle(100, 50, "失敗...", GetColor(255, 255, 255), font);
+		DrawStringToHandle(350, 50, draw_distance, GetColor(255, 255, 255), font);
 	}
 }
 
@@ -71,9 +96,24 @@ void result_initialize() {
 		printf("not find sample.png");
 		///exit(-1);
 	}
-	great_img = LoadGraph("img/mati4.jpg");//画像ロード
+	great_img = LoadGraph("img/mati3.jpg");//画像ロード
 	if (great_img == -1) {
 		printf("not find mati4.jpg");
+		///exit(-1);
+	}
+
+	miss_img = LoadGraph("img/miss.jpg");//画像ロード
+	if (miss_img == -1) {
+		printf("not find miss.jpg");
+		///exit(-1);
+	}
+
+
+	fonttype = "MS ゴシック";// "Segoe Script";
+
+	font = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
+	if (font == -1) {
+		printf("not find " + *fonttype);
 		///exit(-1);
 	}
 }
@@ -88,7 +128,7 @@ void result_finalize() {
 int decide_distance() {
 	int power = 200;
 	int condition = 500;
-	int timing = 2;
+	int timing = -1;
 
 	return (power + condition) * timing;
 }
