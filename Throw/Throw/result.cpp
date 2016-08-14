@@ -20,6 +20,8 @@ int decide_distance();//投げる距離を計算
 void result_update() {
 	if (distance == -1) {
 		distance = decide_distance();//投げる距離を計算
+		ranking(distance);//新しい記録をランキングに挿入
+		save_output();//セーブ
 		if (distance < 0) {
 			move_img_x2 = -(WINDOW_WIDE);
 		}
@@ -131,4 +133,20 @@ int decide_distance() {
 	int timing = -1;
 
 	return (power + condition) * timing;
+}
+
+
+
+//新しい記録を挿入
+void ranking(int get) {
+	int i, j;
+	for (i = 0; i < RECORD_N; i++) {
+		if (record[i] < get || record[i] == -1) {
+			for (j = RECORD_N; j > i; j--)
+				record[j] = record[j - 1];
+
+			record[i] = get;
+			break;
+		}
+	}
 }

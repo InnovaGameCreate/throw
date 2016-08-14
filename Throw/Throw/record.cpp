@@ -106,3 +106,4 @@ void all_delete() {
 		record[i] = -1;
 	}
 }
+

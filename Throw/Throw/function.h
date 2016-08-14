@@ -37,13 +37,14 @@ void result_update();
 void result_draw();
 void result_initialize();
 void result_finalize();
+void ranking(int get);//V‚µ‚¢‹L˜^‚ğ‘}“ü
+
 
 //record
 void record_update();
 void record_draw();
 void record_initialize();
 void record_finalize();
-
 
 //save
 void save_update();
