@@ -17,4 +17,8 @@ extern int Game_Scene;
 extern int record[RECORD_N];//‹L˜^‚Ì’l
 
 extern int game_loop;
+
+extern int power;
+extern int condistion;
+extern int timing;
 #endif
