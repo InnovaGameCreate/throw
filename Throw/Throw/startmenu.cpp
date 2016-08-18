@@ -7,14 +7,13 @@ static int start_y = 250, start_x_size = 150, start_y_size = 30;//startの座標
 static int record_y = 310, record_x_size = 150, record_y_size = 30; //recordの座標
 static int close_y = 370, close_x_size = 150, close_y_size = 30;//closeの座標
 static int start_f = 0, record_f = 0, close_f = 0;//マウスで選択されているかのフラグ
-static int mouse_x, mouse_y, mouse;//マウスに関する情報格納用
+//static int mouse_x, mouse_y, mouse;//マウスに関する情報格納用
 static int background;//画像用
 
 
 //ゲーム処理ループ
 void startmenu_update() {
-	mouse = GetMouseInput();                //マウスの入力状態取得
-	GetMousePoint(&mouse_x, &mouse_y);                //マウスの座標取得
+	gpUpdateMouse();
 
 	//マウスがstartの上にあるかの判定
 	if (mouse_x > place_x - start_f * 10 && mouse_x < place_x + start_f * 10 + start_x_size && mouse_y > start_y - start_f * 10 && mouse_y < start_y + start_f * 10 + start_y_size)
@@ -34,7 +33,7 @@ void startmenu_update() {
 	else
 		close_f = 0;
 
-	if (mouse & MOUSE_INPUT_LEFT) { //マウスの左ボタンが押されていたら
+	if (Mouse[0] == 1) { //マウスの左ボタンが押されていたら
 		if (start_f == 1)
 			Game_Scene = 1;
 		if (record_f == 1)

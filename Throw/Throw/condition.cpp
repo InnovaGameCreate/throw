@@ -2,11 +2,13 @@
 
 //仮
 int x = 200;
-int flag = 0;
+static int flag = 1;//0にすると値が増え続けるバグが発生
+static int count = 1;//0にすると値が増え続けるバグが発生
 
 
 //ゲーム処理ループ
 void condition_update() {
+	gpUpdateMouse();
 
 	if (x <= 100) {
 		flag = 1;
@@ -20,6 +22,20 @@ void condition_update() {
 	}
 	else if (flag == 1) {
 		x += 4;
+	}
+
+	DrawFormatString(300, 300, GetColor(255, 255, 255), "%d", Mouse[0]);
+	DrawFormatString(300, 200, GetColor(255, 255, 255), "%d", flag);
+	DrawFormatString(300, 310, GetColor(255, 255, 255), "%d", count);
+
+	if (Mouse[0] == 1) { // 左クリックが押されていたら
+		flag = 2;                       // 右へ移動
+	}
+
+	if (flag == 2) {
+		count++;
+		if (count >= 100)
+			Game_Scene = 2;
 	}
 
 }
