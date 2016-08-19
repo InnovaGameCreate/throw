@@ -23,7 +23,7 @@ void power_update() {
 		gage_y -= 4;
 	}
 	else if (flag == 1) {
-		gage_y += 2;
+		gage_y += 4;
 	}
 
 	
