@@ -13,7 +13,6 @@ static int background;//画像用
 
 //ゲーム処理ループ
 void startmenu_update() {
-	gpUpdateMouse();
 
 	//マウスがstartの上にあるかの判定
 	if (mouse_x > place_x - start_f * 10 && mouse_x < place_x + start_f * 10 + start_x_size && mouse_y > start_y - start_f * 10 && mouse_y < start_y + start_f * 10 + start_y_size)

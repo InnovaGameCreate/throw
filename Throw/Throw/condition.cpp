@@ -11,7 +11,6 @@ static char condition_char[64];
 
 //ƒQ[ƒ€ˆ—ƒ‹[ƒv
 void condition_update() {
-	gpUpdateMouse();
 
 	if (gage_x <= 100) {
 		flag = 1;
@@ -41,7 +40,8 @@ void condition_update() {
 		if (count >= 100)
 			Game_Scene = 2;
 	}
-	sprintf(condition_char, "%d", (gage_x - 100) * 500 / 200);
+	condition = (gage_x - 100) * 500 / 200;
+	sprintf(condition_char, "%d", condition);
 }
 
 //•`‰æˆ—

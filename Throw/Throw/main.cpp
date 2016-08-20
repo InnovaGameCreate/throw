@@ -9,6 +9,10 @@ static const int FPS = 60;	//設定したFPSz
 
 int Game_Scene = 0;
 int game_loop = 0;
+int power;
+int condition;
+int timing;
+
 
 bool Update() {
 	if (mCount == 0) { //1フレーム目なら時刻を記憶
@@ -21,7 +25,7 @@ bool Update() {
 		mStartTime = t;
 	}
 	mCount++;
-
+	gpUpdateMouse();
 	switch (Game_Scene) {
 	case 0://スタートメニュー
 		startmenu_update();

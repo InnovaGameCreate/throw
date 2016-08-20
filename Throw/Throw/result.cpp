@@ -128,10 +128,10 @@ void result_finalize() {
 
 //“Š‚°‚é‹——£‚ðŒvŽZ
 int decide_distance() {
-	int power = 200;
+	/*int power = 200;
 	int condition = 500;
 	int timing = -1;
-
+	*/
 	return (power + condition) * timing;
 }
 

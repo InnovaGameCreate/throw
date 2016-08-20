@@ -4,13 +4,12 @@ static int font;//フォント用
 static char *fonttype;//フォントタイプ
 static int gage_y = 200;
 static int flag = 1;//0にすると値が増え続けるバグが発生
-int power = 1;//0にすると値が増え続けるバグが発生
+//int power = 1;//0にすると値が増え続けるバグが発生
 static int count = 1;//0にすると値が増え続けるバグが発生
 static char power_char[64];
 
 //ゲーム処理ループ
 void power_update() {
-	gpUpdateMouse();
 
 	if (gage_y <= 100 && flag == 0) {
 		flag = 1;
@@ -30,7 +29,9 @@ void power_update() {
 	if (Mouse[0] == 1) { // 左クリックが押されていたら
 		flag = 2;                       // 右へ移動
 	}
-	sprintf(power_char, "%d", (200 - gage_y + 100) * 500 / 200);
+
+	power = (200 - gage_y + 100) * 500 / 200;
+	sprintf(power_char, "%d", power);
 	if (flag == 2) {
 		count++;
 		if (count >= 100)
