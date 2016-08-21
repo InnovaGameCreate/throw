@@ -72,6 +72,9 @@ void result_draw() {
 		DrawFormatString(300, 150, GetColor(255, 0, 0), "%d", count);//‹——£
 
 		DrawRotaGraph(100, 200, 0.3, PI / 180 * (count % 360), enemy_img, TRUE);//“G
+
+		DrawFormatString(300, 300, GetColor(255, 0, 0), "power:%d    condition:%d    timing:%d", power, condition, timing);
+
 	}
 	else if (result_scene == 1) {
 		DrawGraph(0, 0, great_img, TRUE); //‰æ‘œ‚Ì•`‰æ
