@@ -65,12 +65,12 @@ void timing_draw() {
 	DrawLine(100 * 1.0 + 100, 100 * 0.1 + 100, 100, 100, GetColor(255, 100, 0));//ü‚ğ•`‰æ
 
 
-	DrawStringToHandle(40, 20, "3", GetColor(255, 255, 255), font);
-	DrawStringToHandle(90, 10, "2", GetColor(255, 255, 255), font);
-	DrawStringToHandle(20, 80, "2", GetColor(255, 255, 255), font);
-	DrawStringToHandle(50, 130, "1", GetColor(255, 255, 255), font);
-	DrawStringToHandle(140, 50, "1", GetColor(255, 255, 255), font);
-	DrawStringToHandle(120, 120, "0", GetColor(255, 255, 255), font);
+	DrawStringToHandle(40, 20, "2", GetColor(255, 255, 255), font);
+	DrawStringToHandle(90, 10, "1", GetColor(255, 255, 255), font);
+	DrawStringToHandle(20, 80, "1", GetColor(255, 255, 255), font);
+	DrawStringToHandle(50, 130, "0", GetColor(255, 255, 255), font);
+	DrawStringToHandle(140, 50, "0", GetColor(255, 255, 255), font);
+	DrawStringToHandle(110, 120, "-1", GetColor(255, 255, 255), font);
 
 
 
@@ -104,20 +104,20 @@ int timig_decide() {
 	int int_x = x * 10;
 	int int_y = y * 10;
 	if (int_x >= -9 && int_x <= -3 && int_y >= -10 && int_y <= -4)
-		return 3;
+		return 2;
 
 	if (int_x >= -10 && int_x <= -8 && int_y >= -4 && int_y <= 6)
-		return 2;
+		return 1;
 	if (int_x >= -3 && int_x <= 6 && int_y >= -10 && int_y <= -8)
-		return 2;
+		return 1;
 	
 	if (int_x >= -8 && int_x <= -1 && int_y >= 6 && int_y <= 10)
-		return 1;
+		return 0;
 	if (int_x >= 6 && int_x <= 10 && int_y >= -8 && int_y <= 1)
-		return 1;
+		return 0;
 
 	if (int_x >= -1 && int_x <= 10 && int_y >= 1 && int_y <= 10)
-		return 0;
+		return -1;
 	
 	return -2;
 }
