@@ -6,6 +6,7 @@ static int gage_y = 200;
 static int flag = 0;
 static int count = 0;
 static char power_char[64];
+static int background;//画像用
 
 //ゲーム処理ループ
 void power_update() {
@@ -40,6 +41,8 @@ void power_update() {
 
 //描画処理
 void power_draw() {
+	DrawGraph(0, 0, background, TRUE); //画像の描画
+
 	DrawBox(100, gage_y, 150, 300, GetColor(255, 0, 0), TRUE);
 	DrawBox(100, 301, 150, 100, GetColor(255, 255, 255), FALSE);
 
@@ -58,6 +61,13 @@ void power_initialize() {
 		printf("not find " + *fonttype);
 		///exit(-1);
 	}
+
+	background = LoadGraph("img/mati5.jpg");//画像ロード
+	if (background == -1) {
+		printf("not find mati1.jpg");
+		///exit(-1);
+	}
+
 }
 
 

@@ -10,6 +10,7 @@ static double z = 0;
 static int flag = 0;
 static int count = 0;
 static char timing_char[64];
+static int background;//画像用
 
 
 					
@@ -50,6 +51,7 @@ void timing_update() {
 
 //描画処理
 void timing_draw() {
+	DrawGraph(0, 0, background, TRUE); //画像の描画
 
 	DrawFormatString(300, 300, GetColor(255, 255, 255), "x:%.1f    y:%.1f    z:%.1f", x, y, z);
 
@@ -88,6 +90,12 @@ void timing_initialize() {
 	font = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font == -1) {
 		printf("not find " + *fonttype);
+		///exit(-1);
+	}
+
+	background = LoadGraph("img/mati5.jpg");//画像ロード
+	if (background == -1) {
+		printf("not find mati1.jpg");
 		///exit(-1);
 	}
 }
