@@ -3,9 +3,8 @@
 static int font;//フォント用
 static char *fonttype;//フォントタイプ
 static int gage_y = 200;
-static int flag = 1;//0にすると値が増え続けるバグが発生
-//int power = 1;//0にすると値が増え続けるバグが発生
-static int count = 1;//0にすると値が増え続けるバグが発生
+static int flag = 0;
+static int count = 0;
 static char power_char[64];
 
 //ゲーム処理ループ

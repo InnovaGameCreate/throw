@@ -7,7 +7,7 @@ static float mFps;          //fps
 static const int N = 60;	//•½‹Ï‚ğæ‚éƒTƒ“ƒvƒ‹”
 static const int FPS = 60;	//İ’è‚µ‚½FPSz 
 
-int Game_Scene = 3;
+int Game_Scene = 0;
 int game_loop = 0;
 int power;
 int condition;

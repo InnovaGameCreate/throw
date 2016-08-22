@@ -4,8 +4,8 @@
 static int font;//フォント用
 static char *fonttype;//フォントタイプ
 static int gage_x = 200;
-static int flag = 1;//0にすると値が増え続けるバグが発生
-static int count = 1;//0にすると値が増え続けるバグが発生
+static int flag = 0;
+static int count = 0;
 static char condition_char[64];
 
 
