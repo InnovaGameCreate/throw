@@ -7,8 +7,8 @@ static int font;//フォント用
 static char *fonttype;//フォントタイプ
 static double x = 0, y = 0;
 static double z = 0;
-static int flag = 1;//0にすると値が増え続けるバグが発生
-static int count = 1;//0にすると値が増え続けるバグが発生
+static int flag = 0;
+static int count = 0;
 static char timing_char[64];
 
 
@@ -17,14 +17,14 @@ int timig_decide(); //タイミング決定
 
 //ゲーム処理ループ
 void timing_update() {
-	if (flag == 1) {
+	if (flag == 0) {
 		z += 0.1;
 		x = cos(z);
 		y = sin(z);
 		timing = timig_decide();
 	}
 	if (Mouse[0] == 1) { // 左クリックが押されていたら
-		flag = 2;                   
+		flag = 1;                   
 		//timing = timig_decide();
 		//z += 0.1;
 	}
@@ -34,7 +34,7 @@ void timing_update() {
 	//if (timing == -2)
 	//	flag = 2;
 
-	if (flag == 2) {
+	if (flag == 1) {
 		count++;
 		if (count >= 100) {
 			//flag = 1;
