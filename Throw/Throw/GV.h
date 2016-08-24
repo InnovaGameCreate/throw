@@ -22,6 +22,9 @@ extern int power;
 extern int condition;
 extern int timing;
 
+extern int enemy_img;
+extern int hera_img;
+
 /*mouse.cpp*/
 extern int mouse_x, mouse_y;
 extern int Mouse[8];
