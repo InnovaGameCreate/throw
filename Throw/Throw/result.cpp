@@ -6,12 +6,13 @@ static int font[3];//フォント用
 static char *fonttype; //フォントタイプ
 static char *fonttype2; //フォントタイプ２
 static char draw_distance[10];
-static int move_img, enemy_img, great_img, miss_img;//画像用
+static int move_img, great_img, miss_img;//画像用
 static int move_img_x1 = 0, move_img_x2 = WINDOW_WIDE;//背景の移動用
 static int move_speed = 4;//背景の動く速さ
 static int count = 0;//どれだけ動いたか
 static int distance = -1;//投げる距離（－１の時は未計算）
 static int result_scene = 0;
+int enemy_img, hera_img;
 
 int decide_distance();//投げる距離を計算
 
@@ -141,7 +142,7 @@ void result_initialize() {
 		printf("not find mati1.jpg");
 		///exit(-1);
 	}
-	enemy_img = LoadGraph("img/sample.png");//画像ロード
+	enemy_img = LoadGraph("img/enemy.png");//画像ロード
 	if (enemy_img == -1) {
 		printf("not find sample.png");
 		///exit(-1);
@@ -158,6 +159,11 @@ void result_initialize() {
 		///exit(-1);
 	}
 
+	hera_img = LoadGraph("img/hera.png");//画像ロード
+	if (hera_img == -1) {
+		printf("not find hera.png");
+		///exit(-1);
+	}
 
 	fonttype = "MS ゴシック";// "Segoe Script";
 
