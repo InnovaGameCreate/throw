@@ -38,8 +38,11 @@ void condition_update() {
 
 	if (flag == 2) {
 		count++;
-		if (count >= 100)
+		if (count >= 100) {
 			Game_Scene = 2;
+			count = 0;
+			flag = 1;
+		}
 	}
 
 	if (gage_x <= 200) {

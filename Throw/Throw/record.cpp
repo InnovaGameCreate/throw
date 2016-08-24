@@ -105,5 +105,6 @@ void all_delete() {
 	for (i = 0; i < RECORD_N; i++) {
 		record[i] = -1;
 	}
+	save_output();
 }
 
