@@ -41,7 +41,14 @@ void condition_update() {
 		if (count >= 100)
 			Game_Scene = 2;
 	}
-	condition = (gage_x - 100) * 500 / 200;
+
+	if (gage_x <= 200) {
+		condition = (gage_x - 100) * 5;
+	}
+	else if (gage_x >= 200) {
+		condition = (300 - gage_x) * 5;
+	}
+	
 	sprintf(condition_char, "%d", condition);
 }
 
