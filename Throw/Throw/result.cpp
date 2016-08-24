@@ -84,8 +84,10 @@ void result_update() {
 			close_f = 0;
 
 		if (Mouse[0] == 1) { //マウスの左ボタンが押されていたら
-			if (start_f == 1)
+			if (start_f == 1) {
 				Game_Scene = 1;
+				distance = -1;
+			}
 			if (record_f == 1)
 				Game_Scene = 5;
 			if (close_f == 1)

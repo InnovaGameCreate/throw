@@ -34,8 +34,11 @@ void power_update() {
 	sprintf(power_char, "%d", power);
 	if (flag == 2) {
 		count++;
-		if (count >= 100)
+		if (count >= 100) {
 			Game_Scene = 3;
+			flag = 1;
+			count = 0;
+		}
 	}
 }
 

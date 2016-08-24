@@ -38,8 +38,8 @@ void timing_update() {
 	if (flag == 1) {
 		count++;
 		if (count >= 100) {
-			//flag = 1;
-			//count = 0;
+			flag = 0;
+			count = 0;
 
 			Game_Scene = 4;
 		}
