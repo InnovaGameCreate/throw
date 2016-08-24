@@ -8,7 +8,7 @@ static int record_y = 310, record_x_size = 150, record_y_size = 30; //recordの座
 static int close_y = 370, close_x_size = 150, close_y_size = 30;//closeの座標
 static int start_f = 0, record_f = 0, close_f = 0;//マウスで選択されているかのフラグ
 
-static int background;//画像用
+static int background, rogo;//画像用
 
 
 //ゲーム処理ループ
@@ -50,6 +50,7 @@ void startmenu_draw() {
 	DrawStringToHandle(place_x - record_f * 10, record_y - record_f * 10, "record", GetColor(255, 255, 255), font[record_f]);
 	DrawStringToHandle(place_x - close_f * 10, close_y - close_f * 10, "close", GetColor(255, 255, 255), font[close_f]);
 
+	DrawGraph(220, 100, rogo, TRUE); //画像の描画
 }
 
 
@@ -72,6 +73,12 @@ void startmenu_initialize() {
 	background = LoadGraph("img/mati2.jpg");//画像ロード
 	if (background == -1) {
 		printf("not find mati1.jpg");
+		///exit(-1);
+	}
+	
+	rogo = LoadGraph("img/rogo1.png");//画像ロード
+	if (rogo == -1) {
+		printf("not find rogo1.png");
 		///exit(-1);
 	}
 }
