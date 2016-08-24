@@ -4,7 +4,7 @@
 /*
 使用例
 ループ内
-gpUpdateMouse();
+gpUpdateMouse();　　　　　　　　宣言
 
 if (Mouse[0] == 1) {			左クリックが押された瞬間
 	flag = 2;					フラグを2に変える
@@ -19,7 +19,7 @@ int Mouse[8]; // 左クリックが押されているフレーム数を格納する
 int gpUpdateMouse() {// 左クリックの入力状態を更新する
 
 	mouse = GetMouseInput();                //マウスの入力状態取得
-	GetMousePoint(&mouse_x, &mouse_y);                //マウスの座標取得
+	GetMousePoint(&mouse_x, &mouse_y);      //マウスの座標取得
 
 	int tmpMouse[8]; // 現在のキーの入力状態を格納する
 
@@ -34,7 +34,7 @@ int gpUpdateMouse() {// 左クリックの入力状態を更新する
 
 	for (int i = 0; i<8; i++){
 
-	if (tmpMouse[i] != 0) {//左クリックが押されているとき
+	if (tmpMouse[i] != 0) {//ボタンが押されているとき
 		Mouse[i]++;     // 加算
 	}
 	else {              // 押されていなければ

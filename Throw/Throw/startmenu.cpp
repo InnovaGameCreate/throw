@@ -7,7 +7,7 @@ static int start_y = 250, start_x_size = 150, start_y_size = 30;//startの座標
 static int record_y = 310, record_x_size = 150, record_y_size = 30; //recordの座標
 static int close_y = 370, close_x_size = 150, close_y_size = 30;//closeの座標
 static int start_f = 0, record_f = 0, close_f = 0;//マウスで選択されているかのフラグ
-//static int mouse_x, mouse_y, mouse;//マウスに関する情報格納用
+
 static int background;//画像用
 
 
