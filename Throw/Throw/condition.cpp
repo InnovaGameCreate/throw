@@ -8,11 +8,15 @@ static int flag = 0;
 static int count = 0;
 static char condition_char[64];
 static int background;//画像用
+static int flag_re = 0;
 
 
 //ゲーム処理ループ
 void condition_update() {
-
+	if (flag_re == 0) {
+		restart();
+		flag_re = 1;
+	}
 	if (gage_x <= 100) {
 		flag = 1;
 	}
@@ -27,13 +31,9 @@ void condition_update() {
 		gage_x += 4;
 	}
 
-	/*DrawFormatString(300, 300, GetColor(255, 255, 255), "%d", Mouse[0]);
-	DrawFormatString(300, 200, GetColor(255, 255, 255), "%d", flag);
-	DrawFormatString(300, 310, GetColor(255, 255, 255), "%d", count);
-	*/
 
 	if (Mouse[0] == 1) { // 左クリックが押されていたら
-		flag = 2;                       // 右へ移動
+		flag = 2;                     
 	}
 
 	if (flag == 2) {
@@ -42,6 +42,7 @@ void condition_update() {
 			Game_Scene = 2;
 			count = 0;
 			flag = 1;
+			flag_re = 0;
 		}
 	}
 
@@ -73,13 +74,13 @@ void condition_initialize() {
 	font = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font == -1) {
 		printf("not find " + *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 	background = LoadGraph("img/mati5.jpg");//画像ロード
 	if (background == -1) {
 		printf("not find mati1.jpg");
-		///exit(-1);
+		exit(-1);
 	}
 
 }
