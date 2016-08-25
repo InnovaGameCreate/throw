@@ -53,9 +53,11 @@ void timing_update() {
 void timing_draw() {
 	DrawGraph(0, 0, background, TRUE); //画像の描画
 
-	DrawFormatString(300, 300, GetColor(255, 255, 255), "x:%.1f    y:%.1f    z:%.1f", x, y, z);
+	//DrawFormatString(300, 300, GetColor(255, 255, 255), "x:%.1f    y:%.1f    z:%.1f", x, y, z);//デバック用
 
-	DrawFormatString(300, 350, GetColor(255, 100, 0), "timing:%d", timing);
+
+	//DrawFormatString(300, 350, GetColor(255, 100, 0), "timing:%d", timing);//デバック用
+
 
 	DrawCircle(100, 100, 100, GetColor(255, 0, 0), TRUE);//円を描画
 
@@ -90,13 +92,13 @@ void timing_initialize() {
 	font = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font == -1) {
 		printf("not find " + *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 	background = LoadGraph("img/mati5.jpg");//画像ロード
 	if (background == -1) {
 		printf("not find mati1.jpg");
-		///exit(-1);
+		exit(-1);
 	}
 }
 

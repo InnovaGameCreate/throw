@@ -67,30 +67,35 @@ void record_initialize() {
 	font[1] = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font[1] == -1) {
 		printf("not find "+ *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 
 	font[0] = CreateFontToHandle(fonttype, 30, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font[0] == -1) {
 		printf("not find " + *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 	save_load();//記録のロード
 
+	create_char();
+
+	background = LoadGraph("img/mati2.jpg");//画像ロード
+	if (background == -1) {
+		printf("not find mati1.jpg");
+		exit(-1);
+	}
+
+}
+
+//文字列に変換
+void create_char() {
 	int i;
 	for (i = 0; i < RECORD_N; i++) {//数字を文字に変換
 		sprintf(record_char[i], "     %d", record[i]);
 		sprintf(number[i], "%d", i + 1);
 	}
-
-	background = LoadGraph("img/mati2.jpg");//画像ロード
-	if (background == -1) {
-		printf("not find mati1.jpg");
-		///exit(-1);
-	}
-
 }
 
 

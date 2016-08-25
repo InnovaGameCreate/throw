@@ -61,25 +61,25 @@ void startmenu_initialize() {
 	font[1] = CreateFontToHandle(fonttype, 50, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font[0] == -1) {
 		printf("not find " + *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 	font[0] = CreateFontToHandle(fonttype, 30, 3, DX_FONTTYPE_ANTIALIASING_EDGE);//フォント初期化
 	if (font[1] == -1) {
 		printf("not find " + *fonttype);
-		///exit(-1);
+		exit(-1);
 	}
 
 	background = LoadGraph("img/mati2.jpg");//画像ロード
 	if (background == -1) {
 		printf("not find mati1.jpg");
-		///exit(-1);
+		exit(-1);
 	}
 	
 	rogo = LoadGraph("img/rogo1.png");//画像ロード
 	if (rogo == -1) {
 		printf("not find rogo1.png");
-		///exit(-1);
+		exit(-1);
 	}
 }
 

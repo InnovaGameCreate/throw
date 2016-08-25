@@ -38,6 +38,7 @@ void result_draw();
 void result_initialize();
 void result_finalize();
 void ranking(int get);//V‚µ‚¢‹L˜^‚ğ‘}“ü
+void restart();
 
 
 //record
@@ -45,6 +46,9 @@ void record_update();
 void record_draw();
 void record_initialize();
 void record_finalize();
+void create_char();//•¶š—ñ‚É•ÏŠ·
+
+
 
 //save
 void save_update();

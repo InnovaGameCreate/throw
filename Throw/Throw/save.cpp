@@ -23,7 +23,7 @@ void save_draw() {
 
 //‰Šú‰»ŠÖ”
 void save_initialize() {
-	//save_load();//‹L˜^‚Ìƒ[ƒh
+
 }
 
 
