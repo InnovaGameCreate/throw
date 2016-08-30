@@ -34,6 +34,8 @@ void record_update() {
 
 
 	if (mouse & MOUSE_INPUT_LEFT) { //マウスの左ボタンが押されていたら
+		start_music(3);
+
 		if (back_f == 1)
 			Game_Scene = 0;
 		if (delete_f == 1)

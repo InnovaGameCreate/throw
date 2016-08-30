@@ -1,7 +1,7 @@
 #include "GV.h"
 
 int bgm1;
-int decide, result;
+int decide, result, menu;
 
 
 //初期化関数
@@ -25,6 +25,11 @@ void music_initialize() {
 		exit(-1);
 	}
 
+	menu = LoadSoundMem("music/menu.ogg");
+	if (menu == NULL) {
+		printf("not find menu.ogg");
+		exit(-1);
+	}
 	start_music(0);
 }
 
@@ -49,7 +54,9 @@ void start_music(int h) {
 	case 2://結果表示音
 		PlaySoundMem(result, DX_PLAYTYPE_NORMAL); // 効果音を再生する
 		break;
-
+	case 3://メニュー音
+		PlaySoundMem(menu, DX_PLAYTYPE_NORMAL); // 効果音を再生する
+		break;
 	}
 }
 
@@ -68,7 +75,9 @@ void stop_music(int h) {
 	case 2://結果表示音
 		StopSoundMem(result);
 		break;
-
+	case 3://メニュー音
+		StopSoundMem(menu);
+		break;
 	}
 
 }

@@ -23,7 +23,7 @@ static int start_y = 250, start_x_size = 150, start_y_size = 30;//startの座標
 static int record_y = 310, record_x_size = 150, record_y_size = 30; //recordの座標
 static int close_y = 370, close_x_size = 150, close_y_size = 30;//closeの座標
 static int start_f = 0, record_f = 0, close_f = 0;//マウスで選択されているかのフラグ
-
+static int music_f = 0, cnt = 0;
 
 
 //ゲーム処理ループ
@@ -63,10 +63,8 @@ void result_update() {
 	else if (distance < 0 && count > distance) {
 		count -= 5;
 	}
-	else{
+	else {
 		if (count != distance) {
-			start_music(2);
-
 			count = distance;
 		}
 		sprintf(draw_distance, "%dm", distance);
@@ -90,6 +88,8 @@ void result_update() {
 			close_f = 0;
 
 		if (Mouse[0] == 1) { //マウスの左ボタンが押されていたら
+			start_music(1);
+
 			if (start_f == 1) {
 				Game_Scene = 1;
 				distance = -1;
@@ -105,13 +105,22 @@ void result_update() {
 		}
 
 
-		if (distance >= 0)
-			result_scene = 1;//成功
-		else
+		if (distance >= 0) {
+			result_scene = 1;//成功			
+		}
+		else {
 			result_scene = 2;//失敗
+		}
 	}
 	sprintf(distance_char, "%d", count);
 
+	if (result_scene != 0 && music_f == 0) {
+		cnt += 5;
+		if (cnt > 100) {
+			start_music(2);
+			music_f = 1;
+		}
+	}
 }
 
 void restart() {
@@ -120,6 +129,7 @@ void restart() {
 	count = 0;
 	move_img_x1 = 0;
 	move_img_x2 = WINDOW_WIDE;
+	music_f = 0;
 }
 
 //描画処理
