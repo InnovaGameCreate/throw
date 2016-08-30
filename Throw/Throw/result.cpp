@@ -64,8 +64,11 @@ void result_update() {
 		count -= 5;
 	}
 	else{
-		if(count != distance)
+		if (count != distance) {
+			start_music(2);
+
 			count = distance;
+		}
 		sprintf(draw_distance, "%dm", distance);
 
 		//ƒ}ƒEƒX‚ªstart‚Ìã‚É‚ ‚é‚©‚Ì”»’è

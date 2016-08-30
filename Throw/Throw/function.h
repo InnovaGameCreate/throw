@@ -48,6 +48,11 @@ void record_initialize();
 void record_finalize();
 void create_char();//•¶Žš—ñ‚É•ÏŠ·
 
+//music
+void music_initialize();
+void music_finalize();
+void start_music(int h);//‰¹Šy‚ð–Â‚ç‚·
+void stop_music(int h);//‰¹Šy‚ðŽ~‚ß‚é
 
 
 //save

@@ -96,6 +96,7 @@ void initialize() {
 	save_initialize();
 	startmenu_initialize();
 	timing_initialize();
+	music_initialize();
 }
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {

@@ -25,20 +25,14 @@ void power_update() {
 		gage_y += 4;
 	}
 
-	
-	if (Mouse[0] == 1) { // 左クリックが押されていたら
-		flag = 2;                       // 右へ移動
-	}
 
+	if (Mouse[0] == 1) { // 左クリックが押されていたら
+		start_music(1);
+		Game_Scene = 3;
+	}
+	if (flag != 2) {
 	power = (200 - gage_y + 100) * 500 / 200;
 	sprintf(power_char, "%d", power);
-	if (flag == 2) {
-		count++;
-		if (count >= 100) {
-			Game_Scene = 3;
-			flag = 1;
-			count = 0;
-		}
 	}
 }
 

@@ -33,18 +33,12 @@ void condition_update() {
 
 
 	if (Mouse[0] == 1) { // ¶ƒNƒŠƒbƒN‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç
-		flag = 2;                     
+		start_music(1);
+		Game_Scene = 2;
+		flag_re = 0;
+
 	}
 
-	if (flag == 2) {
-		count++;
-		if (count >= 100) {
-			Game_Scene = 2;
-			count = 0;
-			flag = 1;
-			flag_re = 0;
-		}
-	}
 
 	if (gage_x <= 200) {
 		condition = (gage_x - 100) * 5;
@@ -52,8 +46,8 @@ void condition_update() {
 	else if (gage_x >= 200) {
 		condition = (300 - gage_x) * 5;
 	}
-	
-	sprintf(condition_char, "%d", condition);
+		sprintf(condition_char, "%d", condition);
+
 }
 
 //•`‰æˆ—

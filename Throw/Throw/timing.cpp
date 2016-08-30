@@ -25,27 +25,11 @@ void timing_update() {
 		timing = timig_decide();
 	}
 	if (Mouse[0] == 1) { // ¶ƒNƒŠƒbƒN‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç
-		flag = 1;                   
-		//timing = timig_decide();
-		//z += 0.1;
+		start_music(1);
+		Game_Scene = 4;
+
 	}
-	//if (Mouse[1] == 1)
-	//	z -= 0.1;
-
-	//if (timing == -2)
-	//	flag = 2;
-
-	if (flag == 1) {
-		count++;
-		if (count >= 100) {
-			flag = 0;
-			count = 0;
-
-			Game_Scene = 4;
-		}
-	}
-
-	sprintf(timing_char, "%d", timing);
+		sprintf(timing_char, "%d", timing);
 }
 
 
