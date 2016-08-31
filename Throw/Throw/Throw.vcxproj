@@ -163,6 +163,8 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用%3b%25%28AdditionalIncludeDirectories%29;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用%3b%25%28AdditionalIncludeDirectories%29;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="mouse.cpp" />
+    <ClCompile Include="music.cpp" />
     <ClCompile Include="power.cpp" />
     <ClCompile Include="record.cpp" />
     <ClCompile Include="result.cpp" />
