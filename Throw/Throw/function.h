@@ -37,12 +37,22 @@ void result_update();
 void result_draw();
 void result_initialize();
 void result_finalize();
+void ranking(int get);//V‚µ‚¢‹L˜^‚ğ‘}“ü
+void restart();
+
 
 //record
 void record_update();
 void record_draw();
 void record_initialize();
 void record_finalize();
+void create_char();//•¶š—ñ‚É•ÏŠ·
+
+//music
+void music_initialize();
+void music_finalize();
+void start_music(int h);//‰¹Šy‚ğ–Â‚ç‚·
+void stop_music(int h);//‰¹Šy‚ğ~‚ß‚é
 
 
 //save

@@ -1,6 +1,6 @@
 #include "GV.h"
 
-//‰¼
+
 int x = 200;
 int flag = 0;
 
